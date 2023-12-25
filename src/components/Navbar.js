@@ -1,9 +1,17 @@
 import React,{useEffect} from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import AddBlog from './AddBlog';
-import '../App.css';
+import '../stylesheets/App.css';
+import { useNavigate } from 'react-router-dom';
 
-export const Navbar = () => {
+const Navbar = () => {
+
+  const navigate = useNavigate()
+
+  const handleLogout = ()=>{
+    localStorage.removeItem("blogtoken");
+    navigate("/login");
+  }
 
   let location = useLocation();
     useEffect(() => {
@@ -35,7 +43,7 @@ export const Navbar = () => {
         </ul>
       </div>
       <div className='px-3'>
-      <button className='btn btn-outline-dark custom-tooltip'><i className="fa-solid fa-up-right-from-square"></i></button>
+      <button className='btn btn-outline-dark custom-tooltip' onClick={handleLogout} ><i className="fa-solid fa-up-right-from-square"></i></button>
       
       </div>
     </div>
@@ -44,3 +52,5 @@ export const Navbar = () => {
   </>
   )
 }
+
+export default Navbar

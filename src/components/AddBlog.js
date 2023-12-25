@@ -26,7 +26,7 @@ const AddBlog = () => {
     </form>
             </div>
             <div className="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="submit" className="btn btn-primary my-2" data-bs-dismiss="modal">Upload now</button>
             </div>
         </div>

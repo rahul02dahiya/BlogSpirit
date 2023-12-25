@@ -1,0 +1,93 @@
+._form {
+    background: url('../mediaFiles/images.png') center/cover;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+  }
+  
+  .login-form {
+    height: max-content;
+    padding: 45px 32px;
+    width: 420px;
+  }
+  
+  .signup-form {
+    height: min-content;
+    padding: 20px 32px;
+    width: 450px;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="login-form"],[class*= "signup-form"] {
+      width: 80vw;
+    }
+  }
+  
+  ._form form {
+    background-color: #5f52346e;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(2px);
+    border: 2px solid rgba(255, 255, 255, 0.173);
+    box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  }
+  
+  ._form form * {
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    letter-spacing: 0.5px;
+    outline: none;
+    border: none;
+  }
+  
+  ._form label {
+    display: block;
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  #login input {
+    height: 50px;
+    margin-top: 8px;
+  }
+  
+  #signup input:not(#tc) {
+    height: 36px;
+    margin-top: 2px;
+  }
+  
+  ._form input {
+    display: block;
+    width: 100%;
+    background-color: rgba(50, 45, 45, 0.373);
+    border-radius: 3px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 300;
+  }
+  
+  ._form ::placeholder {
+    color: #e5e5e5;
+  }
+  
+  ._form button {
+    margin-top: 20px;
+    width: 100%;
+    background-color: #ffffffda;
+    color: #080710;
+    padding: 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  ._form button:hover {
+    background-color: rgb(242, 226, 178);
+  }
+  

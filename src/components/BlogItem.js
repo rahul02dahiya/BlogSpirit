@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 
 const BlogItem = (props) => {
-   let date = new Date("2023-12-21T14:53:13.813Z");
+   let date = new Date(props.date);
     date = date.toGMTString();
   return (
         <>
