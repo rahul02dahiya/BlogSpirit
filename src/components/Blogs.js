@@ -3,16 +3,18 @@ import BlogItem from './BlogItem'
 import blogContext from '../context/blogs/blogContext'
 import { useNavigate } from 'react-router-dom'
 
-const Blogs = () => {
+const Blogs = (props) => {
 
   const navigate = useNavigate();
   const bContext = useContext(blogContext);
   
-  const{blogs = [], getBlogs} = bContext;
+  const{blogs = [], getAllBlogs, getMyBlogs} = bContext;
 
   useEffect(() => {
     if(localStorage.getItem('blogtoken')){
-      getBlogs();
+      if(props.type==="myBlogs"){getMyBlogs();}
+      if(props.type==="allBlogs"){getAllBlogs();}
+      
     }
     else{
         navigate("/login");

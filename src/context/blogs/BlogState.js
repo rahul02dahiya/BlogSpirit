@@ -36,10 +36,29 @@ const BlogState = (props) => {
   }]
   const [blogs, setBlogs] = useState(initialBlogs)
 
-// Fetching blogs from database
-  const getBlogs = async () => {
+// Fetching all blogs from database
+  const getAllBlogs = async () => {
     try {
       const response = await fetch(`${host}/api/blogs/fetchallblogs`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem('blogtoken')
+        }
+      })
+      const dBlogs = await response.json();
+      console.log(dBlogs);
+      setBlogs(dBlogs);
+    } catch (error) {
+      console.error('There was a problem with the fetch operation:', error);
+
+    }
+  }
+
+// Fetching my blogs from database
+  const getMyBlogs = async () => {
+    try {
+      const response = await fetch(`${host}/api/blogs/fetchmyblogs`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -123,7 +142,7 @@ const BlogState = (props) => {
   }
 
   return (
-    <BlogContext.Provider value={{ blogs, addBlog, deleteBlog, editBlog, getBlogs }}>
+    <BlogContext.Provider value={{ blogs, addBlog, deleteBlog, editBlog, getAllBlogs, getMyBlogs }}>
       {props.children}
     </BlogContext.Provider>
   )

@@ -7,7 +7,7 @@ const ManageBlogs = () => {
        <div>
         <div className="container mt-2" >
         <h3 className='text-center my-3'>You can work here : )</h3>
-        <Blogs />
+        <Blogs type="myBlogs" />
     </div>
     </div>
     </div>
