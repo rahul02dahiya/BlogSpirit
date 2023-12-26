@@ -1,12 +1,25 @@
-import React, { useState, useContext, useRef } from 'react'
-import Blogs from './Blogs'
+import React, { useState,useEffect, useContext, useRef } from 'react'
 import blogContext from '../context/blogs/blogContext'
+import BlogItem from './BlogItem'
+import { useNavigate } from 'react-router-dom'
+
 
 const ManageBlogs = () => {
 
   const [blog, setBlog] = useState({ id: "", etitle: "", edescription: "", etag: "" })
+  const { blogs = [], editBlog , getMyBlogs} = useContext(blogContext);
+  const navigate = useNavigate();
 
-  const {editBlog} = useContext(blogContext)
+  useEffect(() => {
+    if(localStorage.getItem('blogtoken')){
+      getMyBlogs();
+    }
+    else{
+        navigate("/login");
+    }
+    // eslint-disable-next-line
+}, []);
+
 
   const updateBlog = (currentBlog) => {
     ref.current.click();
@@ -28,16 +41,16 @@ const ManageBlogs = () => {
   return (
     <div>
       {/* <!-- Button trigger modal --> */}
-    <button type="button" ref={ref} className="btn btn-primary" style={{"display":"none"}} data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button type="button" ref={ref} className="btn btn-primary" style={{"display":"none"}} data-bs-toggle="modal" data-bs-target="#blogModal">
         Launch demo modal
     </button>
 
     {/* <!-- Modal --> */}
-    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div className="modal fade" id="blogModal" tabIndex="-1" aria-labelledby="blogModalLabel" aria-hidden="true">
         <div className="modal-dialog">
             <div className="modal-content">
                 <div className="modal-header">
-                    <h5 className="modal-title" id="exampleModalLabel">Update your Blog</h5>
+                    <h5 className="modal-title" id="blogModalLabel">Update your Blog</h5>
                     <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div className="modal-body">
@@ -66,7 +79,18 @@ const ManageBlogs = () => {
        <div>
         <div className="container mt-2" >
         <h3 className='text-center my-3'>You can work here : )</h3>
-        <Blogs type="myBlogs" updateBlog={updateBlog} />
+        <div className="row">
+      {
+        blogs.map((element) => {
+          // console.log(element)
+          return (
+            <div className="col-md-4" key={element._id}>
+              <BlogItem blog={element} type="myBlogs" updateBlog={updateBlog} />
+            </div>
+          )
+        })
+      }
+    </div>
     </div>
     </div>
     </div>

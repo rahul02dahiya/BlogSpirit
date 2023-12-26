@@ -9,13 +9,11 @@ const Blogs = (props) => {
   const bContext = useContext(blogContext);
   
   
-  const{blogs = [], getAllBlogs, getMyBlogs} = bContext;
+  const{blogs = [], getAllBlogs} = bContext;
 
   useEffect(() => {
     if(localStorage.getItem('blogtoken')){
-      if(props.type==="myBlogs"){getMyBlogs();}
-      if(props.type==="allBlogs"){getAllBlogs();}
-      
+      getAllBlogs();
     }
     else{
         navigate("/login");
@@ -33,7 +31,7 @@ const Blogs = (props) => {
           console.log(element)
           return (
             <div className="col-md-4" key={element._id}>
-              <BlogItem blog={element} type={props.type} updateBlog={props.updateBlog} />
+              <BlogItem blog={element} type={props.type} />
             </div>
           )
         })

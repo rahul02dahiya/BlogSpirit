@@ -47,7 +47,7 @@ const BlogState = (props) => {
         }
       })
       const dBlogs = await response.json();
-      console.log(dBlogs);
+      // console.log(dBlogs);
       setBlogs(dBlogs);
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
@@ -66,7 +66,7 @@ const BlogState = (props) => {
         }
       })
       const dBlogs = await response.json();
-      console.log(dBlogs);
+      // console.log(dBlogs);
       setBlogs(dBlogs);
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
