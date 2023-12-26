@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react'
+import React, { useState, useContext, useEffect, useRef } from 'react'
 import BlogItem from './BlogItem'
 import blogContext from '../context/blogs/blogContext'
 import { useNavigate } from 'react-router-dom'
@@ -7,6 +7,7 @@ const Blogs = (props) => {
 
   const navigate = useNavigate();
   const bContext = useContext(blogContext);
+  
   
   const{blogs = [], getAllBlogs, getMyBlogs} = bContext;
 
@@ -22,6 +23,8 @@ const Blogs = (props) => {
     // eslint-disable-next-line
 }, []);
 
+
+
   return (
 
     <div className="row">
@@ -30,13 +33,12 @@ const Blogs = (props) => {
           console.log(element)
           return (
             <div className="col-md-4" key={element._id}>
-              <BlogItem title={element.title} description={element.description} date={element.date} />
+              <BlogItem blog={element} type={props.type} updateBlog={props.updateBlog} />
             </div>
           )
         })
       }
     </div>
-
   )
 }
 
