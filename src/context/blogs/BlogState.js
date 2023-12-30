@@ -10,8 +10,8 @@ const BlogState = (props) => {
   const initialBlogs = [{
     "_id": "658862d64a2a71b53fb7aef1",
     "user": "6587d1c095bb75216d628b81",
-    "title": "Hello",
-    "description": "New note is here",
+    "title": "Html",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti nemo placeat, mollitia ut soluta laudantium cupiditate a ipsam voluptatibus tempora libero vel dolores earum sequi totam eveniet tempore enim asperiores illum odit neque perferendis quibusdam illo dicta. Asperiores quae, quibusdam ullam ratione incidunt omnis. Animi ex illo molestiae quos quo!",
     "tag": "General",
     "date": "2023-12-24T16:56:54.438Z",
     "__v": 0
@@ -19,8 +19,8 @@ const BlogState = (props) => {
   {
     "_id": "658862d74a2a81b53fb7af11",
     "user": "6587d1c095bb75216d628b81",
-    "title": "Hello",
-    "description": "New note is here",
+    "title": "CSS",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti nemo placeat, mollitia ut soluta laudantium cupiditate a ipsam voluptatibus tempora libero vel dolores earum sequi totam eveniet tempore enim asperiores illum odit neque perferendis quibusdam illo dicta. Asperiores quae, quibusdam ullam ratione incidunt omnis. Animi ex illo molestiae quos quo!",
     "tag": "General",
     "date": "2023-12-24T16:56:55.330Z",
     "__v": 0
@@ -28,8 +28,8 @@ const BlogState = (props) => {
   {
     "_id": "658862d74a2a781b3fb7af31",
     "user": "6587d1c095bb75216d628b81",
-    "title": "Hello",
-    "description": "New note is here",
+    "title": "JavaScript",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti nemo placeat, mollitia ut soluta laudantium cupiditate a ipsam voluptatibus tempora libero vel dolores earum sequi totam eveniet tempore enim asperiores illum odit neque perferendis quibusdam illo dicta. Asperiores quae, quibusdam ullam ratione incidunt omnis. Animi ex illo molestiae quos quo!",
     "tag": "General",
     "date": "2023-12-24T16:56:55.907Z",
     "__v": 0
@@ -48,7 +48,7 @@ const BlogState = (props) => {
       })
       const dBlogs = await response.json();
       // console.log(dBlogs);
-      setBlogs(dBlogs);
+      setBlogs(initialBlogs.concat(dBlogs));
     } catch (error) {
       console.error('There was a problem with the fetch operation:', error);
 
